@@ -9,6 +9,7 @@ const connectDB = require('../server/src/config/db');
 let connection;
 
 module.exports = async (req, res) => {
+  if (req.url.startsWith('/api/health')) return app(req, res);
   const missing = ['MONGO_URI', 'JWT_SECRET', 'ENCRYPTION_KEY'].filter((k) => !process.env[k]);
   if (missing.length) {
     return res.status(500).json({ message: `Server is not configured. Missing environment variables: ${missing.join(', ')}` });

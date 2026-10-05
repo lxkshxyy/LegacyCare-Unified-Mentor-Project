@@ -1,14 +1,17 @@
 const mongoose = require('mongoose');
 // Fix for 'querySrv ECONNREFUSED' on some Windows / ISP networks:
 // use public DNS servers to resolve the MongoDB Atlas SRV record.
-const dns = require('dns');
-dns.setServers(['8.8.8.8', '1.1.1.1']);
+// Only applied locally; cloud hosts (Vercel/Render) have working DNS.
+if (!process.env.VERCEL && !process.env.RENDER && process.env.USE_PUBLIC_DNS !== 'false') {
+  const dns = require('dns');
+  dns.setServers(['8.8.8.8', '1.1.1.1']);
+}
 
 
 async function connectDB(uri = process.env.MONGO_URI) {
   if (!uri) throw new Error('MONGO_URI is not set');
   mongoose.set('strictQuery', true);
-  await mongoose.connect(uri);
+  await mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 });
   console.log(`MongoDB connected: ${mongoose.connection.host}`);
 }
 
