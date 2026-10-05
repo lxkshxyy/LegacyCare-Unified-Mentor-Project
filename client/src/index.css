@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #faf7f2;
+  --color-sand: #f2ece2;
+  --color-line: #e7e1d8;
+  --color-ink: #1f2a37;
+  --color-ink-soft: #4b5563;
+  --color-muted: #6b7280;
+  --color-sage: #5b7b6a;
+  --color-sage-dark: #4a6657;
+  --color-sage-light: #e6eee9;
+  --color-gold: #c8a96a;
+  --color-gold-light: #f6efe0;
+  --color-rose: #b5838d;
+  --color-rose-light: #f6ecee;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-ivory text-ink font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 { @apply font-serif text-ink; letter-spacing: -0.01em; }
+  :focus-visible { outline: 2px solid var(--color-sage); outline-offset: 2px; }
+}
+
+@utility container-page { margin-inline: auto; width: 100%; max-width: 72rem; padding-inline: 1rem; @media (width >= 40rem) { padding-inline: 1.5rem; } }
+@utility card { @apply rounded-2xl border border-line bg-white shadow-[0_1px_3px_rgba(31,42,55,0.04)]; }
+@utility label { @apply mb-1.5 block text-sm font-medium text-ink; }
+@utility input {
+  @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-[15px] text-ink placeholder:text-muted/70
+    transition focus:border-sage focus:ring-2 focus:ring-sage/20 focus:outline-none disabled:bg-sand;
+}
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition
+    disabled:cursor-not-allowed disabled:opacity-60 min-h-[42px];
+}
+@utility btn-primary { @apply btn bg-sage text-white hover:bg-sage-dark; }
+@utility btn-secondary { @apply btn border border-line bg-white text-ink hover:bg-sand; }
+@utility btn-ghost { @apply btn text-ink-soft hover:bg-sand; }
+@utility btn-danger { @apply btn bg-rose text-white hover:opacity-90; }
+@utility link { @apply text-sage-dark underline-offset-4 hover:underline; }
+@utility no-scrollbar { scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .card { box-shadow: none; break-inside: avoid; }
+}
