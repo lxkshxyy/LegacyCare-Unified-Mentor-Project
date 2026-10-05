@@ -5,7 +5,7 @@
 
 **Unified Mentor Internship Project · MERN Stack**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20site-5B7B6A?style=for-the-badge)](__LIVE_URL__)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20site-5B7B6A?style=for-the-badge)](https://legacycare-unified-mentor-project.vercel.app)
 [![Project Report](https://img.shields.io/badge/Project%20Report-PDF-C8A96A?style=for-the-badge)](docs/LegacyCare_Project_Report.pdf)
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
@@ -27,7 +27,7 @@
 | **Program** | Unified Mentor – Web Development Internship |
 | **Project ID** | 17815 |
 | **Developer** | Lakshay Pandit |
-| **Live demo** | __LIVE_URL__ |
+| **Live demo** | https://legacycare-unified-mentor-project.vercel.app |
 | **Project report** | [docs/LegacyCare_Project_Report.pdf](docs/LegacyCare_Project_Report.pdf) |
 | **Design reference** | [efuneral.com](https://www.efuneral.com/) |
 
